@@ -1,6 +1,6 @@
 # Inventory
-## A RESTful API
-This is a nodejs app
+A RESTful API
+#### This is a nodejs app
 
 ----------
 
@@ -41,7 +41,7 @@ var accountSid = 'AC5ef872f6da5a21de157d80997a64bd33';
 var authToken = '[AuthToken]';
 
 ## Trade-offs
-I decided to not use any authentication, I didn’t have enough time. Primary, methods that are volatile should require authentication. 
+I decided to not use any authentication, I didn’t have enough time. Primarily, methods that are volatile should require authentication. 
 
 The put and delete methods are supposed to be idempotent but I decided that if the user is trying to do something that doesn’t exist, i.e. removing an item that is not there, they should be notified.
 

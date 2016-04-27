@@ -1,0 +1,17 @@
+[{
+    "Label": "Chocolate Chip Cookies",
+    "Type": "Cookie",
+    "Expiration": "2016/04/01"
+},{
+    "Label": "Fire Engine Red",
+    "Type": "Cake",
+    "Expiration": "2016/05/01"
+},{
+    "Label": "Beignet",
+    "Type": "Pastry",
+    "Expiration": "2016/06/01"
+},{
+    "Label": "Picnic Cake",
+    "Type": "Cake",
+    "Expiration": "2016/07/01"
+}]

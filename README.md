@@ -1,6 +1,6 @@
 # Inventory
-A RESTful API
-#### This is a nodejs app
+#### A RESTful API
+##### This is a nodejs app
 
 ----------
 

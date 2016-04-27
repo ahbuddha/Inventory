@@ -1,14 +1,25 @@
+function isValidDate(d) {
+    if (Object.prototype.toString.call(d) === "[object Date]") {
+        if (isNaN(d.getTime())) {
+            return false;
+        } else {
+            return true
+        }
+    }
+    return false;
+}
+
 function Invenotry() {
-    
+
     var data = require('./inventory.json');
 
     function isValidObj(obj) {
         if (!obj || Object.keys(obj).length !== 3) {
             return false;
         }
-        if (obj.hasOwnProperty('Label') && 
-            obj.hasOwnProperty('Type') && 
-            obj.hasOwnProperty('Expiration') ) {
+        if (obj.hasOwnProperty('Label') &&
+            obj.hasOwnProperty('Type') &&
+            obj.hasOwnProperty('Expiration')) {
             return true;
         }
         return false;
@@ -20,11 +31,11 @@ function Invenotry() {
                 return i;
             }
         }
-        return -1;   
+        return -1;
     }
 
     function indexOfObj(obj) {
-         return indexOfStr(obj.Label);
+        return indexOfStr(obj.Label);
     }
 
     function addObj(obj) {
@@ -33,12 +44,17 @@ function Invenotry() {
         }
         if (indexOfObj(obj) !== -1) {
             return 'Object already exists';
-        }    
+        }
+        if (isValidDate(new Date(obj.Expiration)) === false) {
+            obj.Expiration = new Date();
+            obj.Expiration.setFullYear(obj.Expiration.getFullYear() + 1);
+        }
         return data.push(obj);
     }
 
     function getExpiredItems() {
-        var arr = [], d;
+        var arr = []
+            , d;
         var now = new Date();
         for (var i = 0, l = data.length; i < l; ++i) {
             d = new Date(data[i].Expiration);
@@ -48,20 +64,20 @@ function Invenotry() {
         }
         return arr;
     }
-    
+
     this.isValidObj = isValidObj;
     this.indexOfStr = indexOfStr;
     this.indexOfObj = indexOfObj;
     this.addObj = addObj;
     this.getExpiredItems = getExpiredItems;
-    
-    this.getData = function() {
+
+    this.getData = function () {
         return data;
     };
-    this.clearData = function() {
+    this.clearData = function () {
         data = [];
     };
-    this.removeItemAtIndex = function(index) {
+    this.removeItemAtIndex = function (index) {
         data.splice(index, 1);
     };
 }

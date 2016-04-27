@@ -1,12 +1,15 @@
 var accountSid = 'AC5ef872f6da5a21de157d80997a64bd33';
 var authToken = '[AuthToken]';
 
+var toNum = '+12065555555';
+var fromNum = '+12061234567';
+
 var client = require('twilio')(accountSid, authToken);
 
 function sendMsg(msg) {
     client.messages.create({
-        to: "+16518675309",
-        from: "+14158141829",
+        to: toNum,
+        from: fromNum,
         body: msg,
     }, function(err, message) {
         if (err) {

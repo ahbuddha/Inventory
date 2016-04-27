@@ -67,7 +67,7 @@ router.delete('/inventory/:label', function(req, res, next) {
     if (index === -1) {
         res.status(400).send('Label does not exist');
     } else {
-        //twilio.itemRemoved(req.params.label);
+        twilio.itemRemoved(req.params.label);
         res.json(inventory.removeItemAtIndex(index));
     }
 });
